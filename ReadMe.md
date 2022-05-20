@@ -1,6 +1,8 @@
 # Yul Yoga (The best zero to hero Yul guide)
 
-![24b16d2fc5d94cabb209ca65cf6a8a75](https://user-images.githubusercontent.com/32522659/169563005-e9751444-dedf-41ce-8763-16cadccfc7ba.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/32522659/169563005-e9751444-dedf-41ce-8763-16cadccfc7ba.png" />
+</p>
 
 ## About Yul (picked from documentation itself)
 
