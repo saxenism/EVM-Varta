@@ -44,6 +44,8 @@ The EVM executes its own bytecode intstruction set which higher level smart cont
 
 In addition to the typical bytecode operations (arithmetical, logical, memory access, flow control, logging etc), the EVM also has access to account information (address and balance) & block information (current gas price, block number etc)
 
+> **Note** All arithmetic is performed modulo 2^256 (unless otherwise noted), and the also 0^0 is taken to be 1.
+
 
 ## About Yul (picked from documentation itself)
 
