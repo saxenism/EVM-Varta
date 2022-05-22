@@ -8,9 +8,10 @@
 
 Jet:  
 > Yul is part of a greater family of EVM assembly languages
+>
 > its basically EVM assembly wrapped into a language with some Ssyntactic sugar
+>
 > What's great about that is that the only thing you need to write Yul is an understanding of the EVM. Looking at Yul contracts won't really get you to that point
-
 
 So, let's get a bit of a deeper understanding of the EVM
 
@@ -22,11 +23,12 @@ Consider Ethereum to be a global computer (with each node having its own permane
 
 2. The EVM is a quasi-Turing complete state machine. 
 
-*Quasi* because all execution processes are limited to a finite number of computational steps by the amount of gas available for any given smart contract execution.
+  * *Quasi* because all execution processes are limited to a finite number of computational steps by the amount of gas available for any given smart        contract execution.
 
 3. This property: the requirement of a particular amount of gas to execute transactions on the EVM (absence of which leads to halting of execution) helps us do away with the **Halting Problem**
 
-**Note** What is the halting problem?
+> **Note** What is the halting problem?
+>
 >  Halting means that the program on certain input will accept it and halt or reject it and halt, but it would never go into an infinite loop. So essentially halting == terminating.
 
 
