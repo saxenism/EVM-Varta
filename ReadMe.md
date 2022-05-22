@@ -17,7 +17,9 @@ So, let's get a bit of a deeper understanding of the EVM
 
 ## What is an EVM
 
-Consider Ethereum to be a global computer (with each node having its own permanent data store) and EVM is the processor. It basically handles smart contract deployment and execution.
+Consider Ethereum to be a global computer (with each node having its own permanent data store) and EVM is the processor. It basically handles smart contract deployment and execution. It is just a computation engine, and as such provides an abstraction of just computation and storage, similar to Java Virtual Machine(JVM).
+
+The EVM executes its own bytecode intstruction set which higher level smart contract languages such as LLL, Serpent, Mutan or Solidity are compiled into. The EVM does not require to have any scheduling capability because Ethereum clients run through verified block transactions to determine which smart contract needs executing and in which order. This mechanism makes **EVM a single-threaded mechanism**.
 
 1. A Turing machine is a finite (there are a limited number of states, such as a coin toss will have only two states: HEADS or TAILS) state machine that has an unlimited supply of paper tape that it can write on and read back.
 
@@ -30,6 +32,17 @@ Consider Ethereum to be a global computer (with each node having its own permane
 > **Note** What is the halting problem?
 >
 >  Halting means that the program on certain input will accept it and halt or reject it and halt, but it would never go into an infinite loop. So essentially halting == terminating.
+
+4. The EVM has a stack-based architecture, storing all in-memory values on a stack. It works with a word size of 256 bits
+
+5. EVM has a few addressable data components such as:
+  - An immutable program code ROM (opcodes)
+  - A volatile memory (memory variables probably includes calldata)
+  - A permanent storage (keyword: storage)
+
+## The EVM Instruction Set (Bytecode operations)
+
+In addition to the typical bytecode operations (arithmetical, logical, memory access, flow control, logging etc), the EVM also has access to account information (address and balance) & block information (current gas price, block number etc)
 
 
 ## About Yul (picked from documentation itself)
