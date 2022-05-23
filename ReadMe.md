@@ -44,7 +44,146 @@ The EVM executes its own bytecode intstruction set which higher level smart cont
 
 In addition to the typical bytecode operations (arithmetical, logical, memory access, flow control, logging etc), the EVM also has access to account information (address and balance) & block information (current gas price, block number etc)
 
+1. Arithmetic Operations
+
+```
+ADD        //Add the top two stack items
+MUL        //Multiply the top two stack items
+SUB        //Subtract the top two stack items
+DIV        //Integer division
+SDIV       //Signed integer division
+MOD        //Modulo (remainder) operation
+SMOD       //Signed modulo operation
+ADDMOD     //Addition modulo any number
+MULMOD     //Multiplication modulo any number
+EXP        //Exponential operation
+SIGNEXTEND //Extend the length of a two's complement signed integer
+SHA3       //Compute the Keccak-256 hash of a block of memory
+
+```
+
 > **Note** All arithmetic is performed modulo 2<sup>256</sup> (unless otherwise noted), and the also 0<sup>0</sup> is taken to be 1.
+
+
+2. Stack Operations
+
+```
+POP     //Remove the top item from the stack
+MLOAD   //Load a word from memory
+MSTORE  //Save a word to memory
+MSTORE8 //Save a byte to memory
+SLOAD   //Load a word from storage
+SSTORE  //Save a word to storage
+MSIZE   //Get the size of the active memory in bytes
+PUSHx   //Place x byte item on the stack, where x can be any integer from
+        // 1 to 32 (full word) inclusive
+DUPx    //Duplicate the x-th stack item, where x can be any integer from
+        // 1 to 16 inclusive
+SWAPx   //Exchange 1st and (x+1)-th stack items, where x can be any
+        // integer from 1 to 16 inclusive
+
+```
+
+3. Process Flow Operations
+
+```
+STOP      //Halt execution
+JUMP      //Set the program counter to any value
+JUMPI     //Conditionally alter the program counter
+PC        //Get the value of the program counter (prior to the increment corresponding to this instruction)
+JUMPDEST  //Mark a valid destination for jumps
+```
+
+4. System Operations
+
+```
+LOGx          //Append a log record with x topics, where x is any integer
+              //from 0 to 4 inclusive
+CREATE        //Create a new account with associated code
+CALL          //Message-call into another account, i.e. run another
+              //account's code
+CALLCODE      //Message-call into this account with another
+              //account's code
+RETURN        //Halt execution and return output data
+DELEGATECALL  //Message-call into this account with an alternative
+              //account's code, but persisting the current values for
+              //sender and value
+STATICCALL    //Static message-call into an account
+REVERT        //Halt execution, reverting state changes but returning
+              //data and remaining gas
+INVALID       //The designated invalid instruction
+SELFDESTRUCT  //Halt execution and register account for deletion
+```
+
+5. Logic Operations
+
+```
+LT     //Less-than comparison
+GT     //Greater-than comparison
+SLT    //Signed less-than comparison
+SGT    //Signed greater-than comparison
+EQ     //Equality comparison
+ISZERO //Simple NOT operator
+AND    //Bitwise AND operation
+OR     //Bitwise OR operation
+XOR    //Bitwise XOR operation
+NOT    //Bitwise NOT operation
+BYTE   //Retrieve a single byte from a full-width 256-bit word
+```
+
+6. Environmental Operations
+
+```
+GAS            //Get the amount of available gas (after the reduction for
+               //this instruction)
+ADDRESS        //Get the address of the currently executing account
+BALANCE        //Get the account balance of any given account
+ORIGIN         //Get the address of the EOA that initiated this EVM
+               //execution
+CALLER         //Get the address of the caller immediately responsible
+               //for this execution
+CALLVALUE      //Get the ether amount deposited by the caller responsible
+               //for this execution
+CALLDATALOAD   //Get the input data sent by the caller responsible for
+               //this execution
+CALLDATASIZE   //Get the size of the input data
+CALLDATACOPY   //Copy the input data to memory
+CODESIZE       //Get the size of code running in the current environment
+CODECOPY       //Copy the code running in the current environment to
+               //memory
+GASPRICE       //Get the gas price specified by the originating
+               //transaction
+EXTCODESIZE    //Get the size of any account's code
+EXTCODECOPY    //Copy any account's code to memory
+RETURNDATASIZE //Get the size of the output data from the previous call
+               //in the current environment
+RETURNDATACOPY //Copy data output from the previous call to memory
+
+```
+
+7. Block Operations
+
+```
+BLOCKHASH  //Get the hash of one of the 256 most recently completed
+           //blocks
+COINBASE   //Get the block's beneficiary address for the block reward
+TIMESTAMP  //Get the block's timestamp
+NUMBER     //Get the block's number
+DIFFICULTY //Get the block's difficulty
+GASLIMIT   //Get the block's gas limit
+```
+
+## Ethereum State
+
+The job of the EVM is to update the Ethereum state by computing valid state transactions as a result of smart contract code execution. Therefore, Ethereum can be considered a **transaction-based state machine** since external actors (ie account holders and miners) initiate state transitions by creating, accepting and ordering transactions.
+
+At the top level, we have the Ethereum world state. The world state is a mapping of Ethereum addresses (160-bit values) to accounts. At the lower level, each Ethereum address represents an account comprising an Ether balance, a nonce (reps the number of txn successfully if EOA or the number of contracts created, if a contract), the account's storage, and account's code. An EOA will always have no code and an empty storage.
+
+For a transaction resulting in a smart contract code execution, you can think of the EVM running on a sandboxed copy of the Ethereum world state, with this sandboxed version being discarded completely if execution cannot complete for whatever reason (Eg OOG exception). However if the execution does complete successfully, then the real-world state is updated to match the sandboxed version, including any changes to the called contract's storage data, any new contracts created, and any ether balance transfers that were initiated.
+
+> **Note** Gas is deducted even in cases of failed execution, because as the code exection progresses, the gas gas supply is reduced according to the gas cost of the operations executed. If at any point the gas supply is reduced to zero we get an "Out of Gas" (OOG) exception; execution immediately halts and the transaction is abandoned. No changes to the Ethereum state are applied, except for the sender’s nonce being incremented and their ether balance going down to pay the block’s beneficiary for the resources used to execute the code upto the halting point.
+
+A contract can call other contracts, with each call resulting in another EVM being instantiated around the new target of the call. Each instantiation has its sandbox world state initialized from the sandbox of the EVM at the level above.
 
 
 ## About Yul (picked from documentation itself)
