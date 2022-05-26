@@ -193,6 +193,10 @@ This section basically explains how the opcodes are arranged in stack and how th
 
 To get examples on this, [the ethereum mastery book](https://github.com/ethereumbook/ethereumbook/blob/develop/13evm.asciidoc#contract-deployment-code) is good.
 
+And an awesome resource to pick up how EVM opcode works is [this presentation from Ethereum Engineering Group](https://www.youtube.com/watch?v=RxL_1AfV7N4&ab_channel=EthereumEngineeringGroup)
+
+PS: I made some notes from this YT talk. You can see them [here](#)
+
 ## About Yul (picked from documentation itself)
 
 1. Yul provides for loops, if and switch statements
