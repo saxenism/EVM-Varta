@@ -185,6 +185,13 @@ For a transaction resulting in a smart contract code execution, you can think of
 
 A contract can call other contracts, with each call resulting in another EVM being instantiated around the new target of the call. Each instantiation has its sandbox world state initialized from the sandbox of the EVM at the level above.
 
+## Compiling Solidity to EVM Bytecode
+
+This section basically explains how the opcodes are arranged in stack and how they operate. Things like DUP1, PUSH1, JUMPI, EQ, LT, MLOAD etc are used to demonstrate how a program is executed in the EVM.
+
+> **Note** There is an important but subtle difference between the code used when creating and deploying a new contract on the Ethereum platform and the code of the contract itself. In order to create a new contract, a special transaction is needed that has its to field set to the special 0x0 address and its data field set to the contract’s initiation code. When such a contract creation transaction is processed, the code for the new contract account is not the code in the data field of the transaction. Instead, an EVM is instantiated with the code in the data field of the transaction loaded into its program code ROM, and then the output of the execution of that deployment code is taken as the code for the new contract account. This is so that new contracts can be programmatically initialized using the Ethereum world state at the time of deployment, setting values in the contract’s storage and even sending ether or creating further new contracts.
+
+To get examples on this, [the ethereum mastery book](https://github.com/ethereumbook/ethereumbook/blob/develop/13evm.asciidoc#contract-deployment-code) is good.
 
 ## About Yul (picked from documentation itself)
 
