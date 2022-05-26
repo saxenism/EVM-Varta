@@ -197,6 +197,71 @@ And an awesome resource to pick up how EVM opcode works is [this presentation fr
 
 PS: I made some notes from this YT talk. You can see them [here](Resources/YulYoga-EVMNotes.pdf)
 
+## Turing Completeness and Gas
+
+We have already discussed how the Ethereum Virtual Machine is a quasi-Turing-complete machine since it solves the halting problem.
+
+One more interesting point to note is what happens when a (apparently rich af) attacker supposedly offers infinite gas and asks the EVM to do infinite computations? Well, if after a prespecified maximum amount of computation has been performed, the execution hasn’t ended, the execution of the program is halted by the EVM. That limit isn’t fixed in Ethereum—you can pay to increase it up to a maximum (called the "block gas limit"), and everyone can agree to increase that maximum over time. Nevertheless, at any one time, there is a limit in place, and transactions that consume too much gas while executing are halted.
+
+## Gas
+
+Gas is the cost to for on-chain computation and storage.
+
+Each operation performed by a transaction or contract costs a fixed amount of gas. Example:
+1. Addition costs 3 gas
+2. Keccak-256 costs 30 gas + 6 gas for each 256 bits of data being hashed
+3. Sending a transaction costs 21,000 gas
+
+Gas serves two purposes:
+1. Prevents DoS attacks, first by making it financially infeasible and then asking the tx.origin to set a limit to the gas they are willing to pay.
+2. Providing reward to miners (as a hedge against volatile ETH prices)
+
+## Gas Accounting During Execution
+
+In the first instance, the EVM is provided with the gas supply equal to the amount specified by the gas limit, and all steps that can be performed with that amount of gas, are performed.
+
+If all the steps were performed, any remaining gas is sent to the sender in form of Ether
+
+```
+refunded ether = remaining gas * gas price
+```
+
+And in either case, the miner gets paid (in ether) because the computations were done in both cases
+
+```
+miner fee = gas cost * gas price
+```
+
+## Gas Accounting Considerations
+
+The objective is matching gas cost of transactions to the real-world cost of resources.
+
+## Gas Cost vs Gas Price
+
+- Gas cost is the number of units of gas required to perform a particular operation.
+
+- Gas price is the amount of ether you are willing to pay per unit of gas when you send your transaction to the Ethereum network.
+
+## Negative Gas Costs (Refund)
+
+- Deleting a contract (SELFDESTRUCT) is worth a refund of 24,000 gas.
+
+- Changing a storage address from a nonzero value to zero (SSTORE[x] = 0) is worth a refund of 15,000 gas.
+
+## Block Gas Limit
+
+The block gas limit is the maximum amount of gas that may be consumed by all the transactions in a block, and constrains how many transactions can fit into a block.
+
+The block gas limit on the Ethereum mainnet is 8 million gas at the time of writing according to https://etherscan.io, meaning that around 380 basic transactions (each consuming 21,000 gas) could fit into a block.
+
+## Decisisons regarding block gas limit
+
+The miners on the network collectively decide the block gas limit. Individuals who want to mine on the Ethereum network use a mining program, such as Ethminer, which connects to a Geth or Parity Ethereum client. The Ethereum protocol has a built-in mechanism where miners can vote on the gas limit so capacity can be increased or decreased in subsequent blocks. The miner of a block can vote to adjust the block gas limit by a factor of 1/1,024 (0.0976%) in either direction. The result of this is an adjustable block size based on the needs of the network at the time. This mechanism is coupled with a default mining strategy where miners vote on a gas limit that is at least 4.7 million gas, but which targets a value of 150% of the average of recent total gas usage per block (using a 1,024-block exponential moving average).
+
+`
+End of Ethereuem Book
+`
+
 ## About Yul (picked from documentation itself)
 
 1. Yul provides for loops, if and switch statements
