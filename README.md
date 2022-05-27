@@ -258,7 +258,7 @@ The block gas limit is the maximum amount of gas that may be consumed by all the
 
 The block gas limit on the Ethereum mainnet is 8 million gas at the time of writing according to https://etherscan.io, meaning that around 380 basic transactions (each consuming 21,000 gas) could fit into a block.
 
-## Decisisons regarding block gas limit
+## Decisions regarding block gas limit
 
 The miners on the network collectively decide the block gas limit. Individuals who want to mine on the Ethereum network use a mining program, such as Ethminer, which connects to a Geth or Parity Ethereum client. The Ethereum protocol has a built-in mechanism where miners can vote on the gas limit so capacity can be increased or decreased in subsequent blocks. The miner of a block can vote to adjust the block gas limit by a factor of 1/1,024 (0.0976%) in either direction. The result of this is an adjustable block size based on the needs of the network at the time. This mechanism is coupled with a default mining strategy where miners vote on a gas limit that is at least 4.7 million gas, but which targets a value of 150% of the average of recent total gas usage per block (using a 1,024-block exponential moving average).
 
