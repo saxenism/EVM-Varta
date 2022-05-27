@@ -4,6 +4,10 @@
   <img src="https://user-images.githubusercontent.com/32522659/169563005-e9751444-dedf-41ce-8763-16cadccfc7ba.png" />
 </p>
 
+## Start a Discussion
+
+[Click Here](https://github.com/saxenism/YulYoga/discussions)
+
 # EVM
 
 Jet:  
