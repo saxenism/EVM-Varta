@@ -1,8 +1,7 @@
 # EVM-Varta (Let's talk about the EVM)
 
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/32522659/169563005-e9751444-dedf-41ce-8763-16cadccfc7ba.png" />
-</p>
+1. [Ethereum Book Notes](#)
+2. [Playdate by femboy.capital](#)
 
 ## Start a Discussion
 
@@ -265,6 +264,29 @@ The miners on the network collectively decide the block gas limit. Individuals w
 `
 End of Ethereuem Book
 `
+
+## Femboy Capital (Definitely not as detailed as the Ethereum book)
+
+> Will only include small piece of information from this source which add more clarity to already discussed topics or something that might have been missing above.
+
+1. The EVM keeps track of the specific section of the bytecode it is currently executing with a pointer called the **Program Counter** (PC)
+2. A VM execution loop looks something like this:
+   + Fetch the instruction the PC points to
+   + Execute the instruction
+   + If the instruction jumps, set the PC to the new target
+   + Otherwise, increment the PC
+3. The stack can accomodate a maximum of 1024 elements and each element (word) being 256 bits long
+4. This is a good image to visualize memory and storage inside of Ethereum
+
+![Screenshot from 2022-05-28 15-00-08](https://user-images.githubusercontent.com/32522659/170819622-d6ed38fe-b9d5-4398-9b38-84e1dd82b209.png)
+
+5. And this image is a good way to visualize how programs are executed in the EVM:
+ 
+![Screenshot from 2022-05-28 15-04-09](https://user-images.githubusercontent.com/32522659/170819737-918ac257-50fe-44f7-9355-d1d430fca27b.png)
+
+6. Storage in the EVM operates as a map of 32 byte keys to 32 byte values. It is persistent, meaning that the current storage state sticks around even after contract exectuion completes (STOP or RETURN is called). Any subsequent runs of a contract will have read and write access to the same storage space. There is no opportunity for data races because the EVM does not currently support concurrent execution of a single contract - all transactions are executed sequentially.
+
+7. SSTORE cost a whopping 22100 gas! SLOAD cost 100. Reading and writing to storage is very expensive.
 
 ## About Yul (picked from documentation itself)
 
