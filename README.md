@@ -199,7 +199,7 @@ To get examples on this, [the ethereum mastery book](https://github.com/ethereum
 
 And an awesome resource to pick up how EVM opcode works is [this presentation from Ethereum Engineering Group](https://www.youtube.com/watch?v=RxL_1AfV7N4&ab_channel=EthereumEngineeringGroup)
 
-PS: I made some notes from this YT talk. You can see them [here](Resources/YulYoga-EVMNotes.pdf)
+PS: I made some notes from this YT talk. You can see them [here](https://github.com/saxenism/EVM-Varta/blob/master/Resources/YulYoga-EVMNotes.pdf)
 
 ## Turing Completeness and Gas
 
