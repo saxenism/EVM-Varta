@@ -1,4 +1,4 @@
-# Yul Yoga (The best zero to hero Yul guide)
+# EVM-Varta (Let's talk about the EVM)
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/32522659/169563005-e9751444-dedf-41ce-8763-16cadccfc7ba.png" />
