@@ -1,14 +1,5 @@
 # EVM-Varta (Let's talk about the EVM)
 
-1. [Ethereum Book Notes](https://github.com/saxenism/EVM-Varta#what-is-an-evm)
-2. [Playdate by femboy.capital](https://github.com/saxenism/EVM-Varta#femboy-capital-definitely-not-as-detailed-as-the-ethereum-book)
-
-## Start a Discussion
-
-[Click Here](https://github.com/saxenism/YulYoga/discussions)
-
-# EVM
-
 Jet:  
 > Yul is part of a greater family of EVM assembly languages
 >
@@ -17,6 +8,11 @@ Jet:
 > What's great about that is that the only thing you need to write Yul is an understanding of the EVM. Looking at Yul contracts won't really get you to that point
 
 So, let's get a bit of a deeper understanding of the EVM
+
+## Start a Discussion
+
+[Click Here](https://github.com/saxenism/YulYoga/discussions)
+
 
 ## What is an EVM
 
