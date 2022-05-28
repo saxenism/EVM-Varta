@@ -1,7 +1,7 @@
 # EVM-Varta (Let's talk about the EVM)
 
-1. [Ethereum Book Notes](#)
-2. [Playdate by femboy.capital](#)
+1. [Ethereum Book Notes](https://github.com/saxenism/EVM-Varta#what-is-an-evm)
+2. [Playdate by femboy.capital](https://github.com/saxenism/EVM-Varta#femboy-capital-definitely-not-as-detailed-as-the-ethereum-book)
 
 ## Start a Discussion
 
