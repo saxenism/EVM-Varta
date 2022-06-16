@@ -14,6 +14,23 @@ So, let's get a bit of a deeper understanding of the EVM
 [Click Here](https://github.com/saxenism/YulYoga/discussions)
 
 
+## Index
+
++ [What is an EVM](https://saxenism.github.io/EVM-Varta/#what-is-an-evm)
++ [The EVM Instruction Set](https://saxenism.github.io/EVM-Varta/#the-evm-instruction-set-bytecode-operations)
++ [Ethereum State](https://saxenism.github.io/EVM-Varta/#ethereum-state)
++ [Compiling Solidity to EVM Bytecode](https://saxenism.github.io/EVM-Varta/#compiling-solidity-to-evm-bytecode)
++ [Turing Completeness and Gas](https://saxenism.github.io/EVM-Varta/#turing-completeness-and-gas)
++ [Gas](https://saxenism.github.io/EVM-Varta/#gas)
++ [Gas Accounting During Execution](https://saxenism.github.io/EVM-Varta/#gas-accounting-during-execution)
++ [Gas Accounting Considerations](https://saxenism.github.io/EVM-Varta/#gas-accounting-considerations)
++ [Gas Cost vs Gas Price](https://saxenism.github.io/EVM-Varta/#gas-cost-vs-gas-price)
++ [Negative Gas Costs (Refunds)](https://saxenism.github.io/EVM-Varta/#negative-gas-costs-refund)
++ [Block Gas Limit](https://saxenism.github.io/EVM-Varta/#block-gas-limit)
++ [Decisions regarding block gas Limit](https://saxenism.github.io/EVM-Varta/#decisions-regarding-block-gas-limit)
++ [Femboy Capital](https://saxenism.github.io/EVM-Varta/#femboy-capital-definitely-not-as-detailed-as-the-ethereum-book)
++ [WIP](https://saxenism.github.io/EVM-Varta/#wip)
+
 ## What is an EVM
 
 Consider Ethereum to be a global computer (with each node having its own permanent data store) and EVM is the processor. It basically handles smart contract deployment and execution. It is just a computation engine, and as such provides an abstraction of just computation and storage, similar to Java Virtual Machine(JVM).
