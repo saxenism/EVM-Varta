@@ -16,20 +16,20 @@ So, let's get a bit of a deeper understanding of the EVM
 
 ## Index
 
-1. [What is an EVM](https://saxenism.github.io/EVM-Varta/#what-is-an-evm)
-2. [The EVM Instruction Set](https://saxenism.github.io/EVM-Varta/#the-evm-instruction-set-bytecode-operations)
-3. [Ethereum State](https://saxenism.github.io/EVM-Varta/#ethereum-state)
-4. [Compiling Solidity to EVM Bytecode](https://saxenism.github.io/EVM-Varta/#compiling-solidity-to-evm-bytecode)
-5. [Turing Completeness and Gas](https://saxenism.github.io/EVM-Varta/#turing-completeness-and-gas)
-6. [Gas](https://saxenism.github.io/EVM-Varta/#gas)
-7. [Gas Accounting During Execution](https://saxenism.github.io/EVM-Varta/#gas-accounting-during-execution)
-  7.1 [Gas Accounting Considerations](https://saxenism.github.io/EVM-Varta/#gas-accounting-considerations)
-  7.2 [Gas Cost vs Gas Price](https://saxenism.github.io/EVM-Varta/#gas-cost-vs-gas-price)
-  7.3 [Negative Gas Costs (Refunds)](https://saxenism.github.io/EVM-Varta/#negative-gas-costs-refund)
-8. [Block Gas Limit](https://saxenism.github.io/EVM-Varta/#block-gas-limit)
-9. [Decisions regarding block gas Limit](https://saxenism.github.io/EVM-Varta/#decisions-regarding-block-gas-limit)
-10. [Femboy Capital](https://saxenism.github.io/EVM-Varta/#femboy-capital-definitely-not-as-detailed-as-the-ethereum-book)
-11. [WIP](https://saxenism.github.io/EVM-Varta/#wip)
++ [What is an EVM](https://saxenism.github.io/EVM-Varta/#what-is-an-evm)
++ [The EVM Instruction Set](https://saxenism.github.io/EVM-Varta/#the-evm-instruction-set-bytecode-operations)
++ [Ethereum State](https://saxenism.github.io/EVM-Varta/#ethereum-state)
++ [Compiling Solidity to EVM Bytecode](https://saxenism.github.io/EVM-Varta/#compiling-solidity-to-evm-bytecode)
++ [Turing Completeness and Gas](https://saxenism.github.io/EVM-Varta/#turing-completeness-and-gas)
++ [Gas](https://saxenism.github.io/EVM-Varta/#gas)
++ [Gas Accounting During Execution](https://saxenism.github.io/EVM-Varta/#gas-accounting-during-execution)
++ [Gas Accounting Considerations](https://saxenism.github.io/EVM-Varta/#gas-accounting-considerations)
++ [Gas Cost vs Gas Price](https://saxenism.github.io/EVM-Varta/#gas-cost-vs-gas-price)
++ [Negative Gas Costs (Refunds)](https://saxenism.github.io/EVM-Varta/#negative-gas-costs-refund)
++ [Block Gas Limit](https://saxenism.github.io/EVM-Varta/#block-gas-limit)
++ [Decisions regarding block gas Limit](https://saxenism.github.io/EVM-Varta/#decisions-regarding-block-gas-limit)
++ [Femboy Capital](https://saxenism.github.io/EVM-Varta/#femboy-capital-definitely-not-as-detailed-as-the-ethereum-book)
++ [WIP](https://saxenism.github.io/EVM-Varta/#wip)
 
 ## What is an EVM
 
