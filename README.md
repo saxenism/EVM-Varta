@@ -300,14 +300,3 @@ End of Ethereuem Book
 + Storage in the EVM operates as a map of 32 byte keys to 32 byte values. It is persistent, meaning that the current storage state sticks around even after contract exectuion completes (STOP or RETURN is called). Any subsequent runs of a contract will have read and write access to the same storage space. There is no opportunity for data races because the EVM does not currently support concurrent execution of a single contract - all transactions are executed sequentially.
 
 + SSTORE cost a whopping 22100 gas! SLOAD cost 100. Reading and writing to storage is very expensive.
-
-# WIP
-## About Yul (picked from documentation itself)
-
-1. Yul provides for loops, if and switch statements
-2. No explicit statements for SWAP, DUP, JUMPDEST, JUMP and JUMPI are provided (as they obfuscate data flow and control flow)
-3. Statements such as mul(add(x, y),z) are preferred over 7 y x add mul, because it becomes easier to see which opcode is being used for which operand
-4. Yul is desigend for a stack based machine (EVM) but it does not expose the programmer to the complexity of the stack itself
-5. Yul is statically typed, but also there is a default type (integer word of the target machine) that can be omitted.
-6. Yul does not have any built-in operations, functions or types in its pure form.
-  6.1 There exists only one specified dialect of Yul (EVM dialect) and that uses the EVM opcodes as builtin functions and defines only the type u256 (native 256-bit type of EVM)
