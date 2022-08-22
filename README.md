@@ -201,6 +201,14 @@ For a transaction resulting in a smart contract code execution, you can think of
 
 A contract can call other contracts, with each call resulting in another EVM being instantiated around the new target of the call. Each instantiation has its sandbox world state initialized from the sandbox of the EVM at the level above.
 
+The EVM can access and store information in six different places:
+1. Stack
+2. CallData
+3. Memory
+4. Storage
+5. Code
+6. Logs
+
 ## Compiling Solidity to EVM Bytecode
 
 This section basically explains how the opcodes are arranged in stack and how they operate. Things like DUP1, PUSH1, JUMPI, EQ, LT, MLOAD etc are used to demonstrate how a program is executed in the EVM.
